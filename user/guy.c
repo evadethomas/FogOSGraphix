@@ -36,7 +36,7 @@ void print_guy(int pos) {
 
 
 void print_guy_run(int pos) {
-	char *buffer = (char *)malloc((pos*3 + 12)*sizeof(char));
+	char *buffer = (char *)malloc((pos*3 + 30)*sizeof(char));
 	char *spaces = (char *)malloc(pos*sizeof(char));
 	
 	for (int i = 0; i < pos; i++) {
@@ -45,7 +45,7 @@ void print_guy_run(int pos) {
 
 
 	char *head = (char *)malloc(10 * sizeof(char));
-	strcpy(head, "  O   \n");
+	strcpy(head, "   O   \n");
 
 	memcpy(buffer, spaces, strlen(spaces) +1);
 	memcpy(buffer + pos, head, strlen(head) + 1);
@@ -54,14 +54,20 @@ void print_guy_run(int pos) {
 
 	char *torso = (char *)malloc(10 * sizeof(char));
         strcpy(torso, "  /|\\  \n");
-	
-	memcpy(buffer + pos * 2 + strlen(head), torso, strlen(torso) + 1);
 
+	char *legs = (char *)malloc(10 * sizeof(char));
+        strcpy(legs, "  / \\  \n");
+
+	memcpy(buffer + (pos * 2) + strlen(head), torso, strlen(torso) + 1);
+	memcpy(buffer + (pos * 2) + strlen(head) + strlen(torso), spaces, strlen(spaces) + 1);
+	memcpy(buffer + (pos * 3) + strlen(head) + strlen(torso), legs, strlen(legs) + 1);
+       	
 	printf(buffer);
 	free(buffer);
 	free(head);
 	free(torso);
-	
+	free(legs);
+	free(spaces);
 	
 }
 
