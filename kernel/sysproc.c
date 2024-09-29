@@ -76,10 +76,11 @@ sys_sleep_ms(void)
   argint(0, &n);
   acquire(&tickslock);
 
-  uint militicks = n / 10;
-
+  uint target_ticks = (n + 1000 - 1) / 1000;
+  
   ticks0 = ticks;
-  while(ticks - ticks0 < militicks){
+  
+  while(ticks - ticks0 < target_ticks){
     if(killed(myproc())){
       release(&tickslock);
       return -1;
