@@ -24,11 +24,21 @@ void printGuy(int pos) {
 	printf("  / \\  \n");
 }
 
+void print_guy(int pos) {
+	char *buffer = (char *)malloc(128*pos*20);
+	strcpy(buffer, "   O   \n");
+	printf(buffer);
+	strcpy
+	free(buffer);
+}
+
+
+
 void guyRun() {
 	for (int i = 0; i < 30; i++) {
         	clearScreen();
-       		printGuy(i);
-        	sleep(5);
+       		print_guy(i);
+        	sleep(0.5);
     	}
 }
 
