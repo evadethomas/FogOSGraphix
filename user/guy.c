@@ -77,9 +77,8 @@ void print_guy_run(int pos) {
 void guyRun1() {
 	for (int i = 0; i < 30; i++) {
         	clearScreen();
-		sleep(1);
        		print_guy_run(i);
-		sleep(1);
+		sleep_ms(10);
     	}
 	printf("%s", "hello");
 }

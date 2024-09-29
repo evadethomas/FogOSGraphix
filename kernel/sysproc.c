@@ -67,6 +67,28 @@ sys_sleep(void)
   release(&tickslock);
   return 0;
 }
+uint64
+sys_sleep_ms(void)
+{
+  int n;
+  uint ticks0;
+
+  argint(0, &n);
+  acquire(&tickslock);
+
+  uint militicks = n / 10;
+
+  ticks0 = ticks;
+  while(ticks - ticks0 < militicks){
+    if(killed(myproc())){
+      release(&tickslock);
+      return -1;
+    }
+    sleep(&ticks, &tickslock);
+  }
+  release(&tickslock);
+  return 0;
+}
 
 uint64
 sys_kill(void)
