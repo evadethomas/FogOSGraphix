@@ -1,6 +1,8 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user/user.h"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 void clearScreen() {
 	printf("\033[H\033[J");
@@ -24,8 +26,8 @@ void printGuy(int pos) {
 	printf("  / \\  \n");
 }
 
-void print_guy(int pos) {
-	char *buffer = (char *)malloc(128*pos*20);
+void print_guy() {
+	char *buffer = (char *)malloc(128*20);
 	
 	strcpy(buffer, "   O   \n  /|\\  \n  / \\  \n\0");
 	
@@ -72,21 +74,37 @@ void print_guy_run(int pos) {
 	
 }
 
+void guy_color() {
+	printf("%s", RED);
+	print_guy();
+	printf("%s", RESET);
+}
 
 
-void guyRun1() {
+
+void guy_run() {
 	for (int i = 0; i < 30; i++) {
         	clearScreen();
        		print_guy_run(i);
 		sleep_ms(10);
     	}
-	printf("%s", "hello");
+	for (int i = 30; i >0; i--) {
+                clearScreen();
+                print_guy_run(i);
+                sleep_ms(10);
+        }
 }
 
-int main () {
+int main (int argc, char *argv[]) {
 
-	guyRun1();
-	//printGuy(30);
-	//print_guy_run(30);
+	if (argc == 1) {
+		print_guy();
+	} else if (strcmp(argv[1], "run") == 0) {
+		guy_run();
+	} else {
+		printf("Fail");
+	}
+
+	guy_color();
 	return 0;
 }
