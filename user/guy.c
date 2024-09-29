@@ -63,6 +63,7 @@ void print_guy_run(int pos) {
 	memcpy(buffer + (pos * 3) + strlen(head) + strlen(torso), legs, strlen(legs) + 1);
        	
 	printf(buffer);
+
 	free(buffer);
 	free(head);
 	free(torso);
@@ -73,18 +74,20 @@ void print_guy_run(int pos) {
 
 
 
-void guyRun() {
+void guyRun1() {
 	for (int i = 0; i < 30; i++) {
         	clearScreen();
-       		printGuy(i);
-        	sleep(0.5);
+		sleep(1);
+       		print_guy_run(i);
+		sleep(1);
     	}
+	printf("%s", "hello");
 }
 
 int main () {
 
-	//guyRun();
+	guyRun1();
 	//printGuy(30);
-	print_guy_run(30);
+	//print_guy_run(30);
 	return 0;
 }
