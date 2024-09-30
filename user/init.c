@@ -23,16 +23,7 @@ main(void)
   dup(0);  // stdout
   dup(0);  // stderr
 
-  printf(" __________________\n");
-  printf("< Welcome to FogOS >\n");
-  printf(" ------------------\n");
-  printf("        \\   ^__^\n");
-  printf("         \\  (**)\\_______\n");
-  printf("            (__)\\       )\\/\\\n");
-  printf("             U  ||----w |\n");
-  printf("                ||     ||\n");
-
-  guy_mad();
+  guy_celebrate_intro();
 
   for(;;){
     printf("init: starting sh\n");

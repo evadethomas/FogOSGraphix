@@ -44,4 +44,4 @@ int memcmp(const void *, const void *, uint);
 void *memcpy(void *, const void *, uint);
 
 //guy2.c
-void guy_mad(void);
+void guy_celebrate_intro(void);

@@ -121,6 +121,21 @@ void guy_mad() {
 	printf("%s", RESET);
 }
 
+void guy_move_head() {
+        for (int i = 0; i < 15; i++) {
+                clearScreen();
+                if (i % 2 == 0) {
+                        print_guy_L();
+                } else {
+                        print_guy_R();
+                }
+                sleep_ms(10);
+        }
+        clearScreen();
+        print_guy();
+        printf("%s", RESET);
+}
+
 
 
 void guy_run() {
@@ -136,7 +151,7 @@ void guy_run() {
         }
 } 
 
-void guy_celebrate() {
+void guy_celebrate_intro() {
 	clearScreen();
 	print_guy_U();
 	printf("%s", GREEN);
@@ -150,7 +165,15 @@ void guy_celebrate() {
                 sleep_ms(10);
         }
         clearScreen();
-        printf("  YAY!\n");
+        printf("  WELCOME TO FogOS !!\n");
+
+	sleep(2);
+	guy_run();
+	printf("Type guy info to see more of me.\n");
+	guy_move_head();
+
+	
+
 	print_guy();
 
         printf("%s", RESET);
