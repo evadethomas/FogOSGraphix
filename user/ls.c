@@ -41,6 +41,8 @@ ls(char *path)
     return;
   }
 
+  guy_celebrate();
+
   switch(st.type){
   case T_DEVICE:
   case T_FILE:

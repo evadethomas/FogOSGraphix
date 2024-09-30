@@ -150,6 +150,23 @@ void guy_celebrate() {
         printf("%s", RESET);
 }
 
+void guy_info() {
+	print_guy();
+	guy_celebrate();
+	printf("%s", GREEN);
+	printf("I'm your OS buddy! As you interact with the OS, you can type \n\"guy celebrate\", \"guy gets mad\", or \"guy run\" \nas you get bored/frustrated.\nYou will also find me scattered across various functions in the OS that call on the \"guy\" library !!\nTry calling ls to see an example.\n");
+	printf("%s", RESET);
+}
+
+void print_message(char* mes) {
+	print_guy();
+	printf("     ^");
+	printf("   /   \\n");
+	printf("  |     | \n");
+	printf("  |     | \n");
+	printf("%s", mes);
+}
+
 void guy_celebrate_intro() {
 	clearScreen();
 	print_guy_U();
@@ -167,7 +184,7 @@ void guy_celebrate_intro() {
 	sleep(1);
 	guy_run();
 	guy_move_head();
-	printf("WELCOME TO FogOS !! Type guy info to see more of me.\n");
+	printf("WELCOME TO FogOS !! Type \"guy info\" to see more of me.\n");
 
         printf("%s", RESET);
 }
