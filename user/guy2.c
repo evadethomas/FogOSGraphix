@@ -1,9 +1,9 @@
 #include "kernel/types.h"
-#include "kernel/stat.h"
 #include "user/user.h"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 #define GREEN "\033[32m"
+
 
 void clearScreen() {
 	printf("\033[H\033[J");
@@ -29,7 +29,7 @@ void printGuy(int pos) {
 
 void print_guy() {
 	char *buffer = (char *)malloc(128*20);
-	
+//	char *buffer = (char *)malloc(1);
 	strcpy(buffer, "   O   \n  /|\\  \n  / \\  \n\0");
 	
 	printf(buffer);
@@ -105,7 +105,7 @@ void print_guy_run(int pos) {
 	
 }
 
-void guy_color() {
+void guy_mad() {
 	printf("%s", RED);
 	for (int i = 0; i < 15; i++) {
 		clearScreen();
@@ -154,20 +154,4 @@ void guy_celebrate() {
 	print_guy();
 
         printf("%s", RESET);
-}
-
-int main (int argc, char *argv[]) {
-
-	if (argc == 1) {
-		print_guy();
-	} else if (strcmp(argv[1], "run") == 0) {
-		guy_run();
-	} else if ((strcmp(argv[1], "gets") == 0) && (strcmp(argv[2], "mad") == 0)) {
-		guy_color();
-	} else {
-		printf("Fail");
-	}
-
-	guy_celebrate();
-	return 0;
 }

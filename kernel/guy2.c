@@ -1,8 +1,8 @@
 #include "kernel/types.h"
-#include "kernel/stat.h"
-#include "user/user.h"
+#include "ulib.c"
 #define RED "\033[31m"
 #define RESET "\033[0m"
+#define GREEN "\033[32m"
 
 void clearScreen() {
 	printf("\033[H\033[J");
@@ -34,6 +34,36 @@ void print_guy() {
 	printf(buffer);
 	
 	free(buffer);
+}
+
+void print_guy_U() {
+        char *buffer = (char *)malloc(128*20);
+
+        strcpy(buffer, "\n   O   \n  /|\\  \n  / \\  \n\0");
+
+        printf(buffer);
+
+        free(buffer);
+}
+
+void print_guy_L() {
+        char *buffer = (char *)malloc(128*20);
+
+        strcpy(buffer, "  O   \n  /|\\  \n  / \\  \n\0");
+
+        printf(buffer);
+
+        free(buffer);
+}
+
+void print_guy_R() {
+        char *buffer = (char *)malloc(128*20);
+
+        strcpy(buffer, "    O  \n  /|\\  \n  / \\  \n\0");
+
+        printf(buffer);
+
+        free(buffer);
 }
 
 
@@ -76,6 +106,16 @@ void print_guy_run(int pos) {
 
 void guy_color() {
 	printf("%s", RED);
+	for (int i = 0; i < 15; i++) {
+		clearScreen();
+		if (i % 2 == 0) {
+			print_guy_L();
+		} else {
+			print_guy_R();
+		}
+		sleep_ms(10);
+	}
+	clearScreen();
 	print_guy();
 	printf("%s", RESET);
 }
@@ -83,16 +123,36 @@ void guy_color() {
 
 
 void guy_run() {
-	for (int i = 0; i < 30; i++) {
+	for (int i = 0; i < 20; i++) {
         	clearScreen();
        		print_guy_run(i);
 		sleep_ms(10);
     	}
-	for (int i = 30; i >0; i--) {
+	for (int i = 20; i >0; i--) {
                 clearScreen();
                 print_guy_run(i);
                 sleep_ms(10);
         }
+} 
+
+void guy_celebrate() {
+	clearScreen();
+	print_guy_U();
+	printf("%s", GREEN);
+        for (int i = 0; i < 15; i++) {
+                clearScreen();
+                if (i % 2 == 0) {
+                        print_guy_U();
+                } else {
+                        print_guy();
+                }
+                sleep_ms(10);
+        }
+        clearScreen();
+        printf("  YAY!\n");
+	print_guy();
+
+        printf("%s", RESET);
 }
 
 int main (int argc, char *argv[]) {
@@ -101,10 +161,12 @@ int main (int argc, char *argv[]) {
 		print_guy();
 	} else if (strcmp(argv[1], "run") == 0) {
 		guy_run();
+	} else if ((strcmp(argv[1], "gets") == 0) && (strcmp(argv[2], "mad") == 0)) {
+		guy_color();
 	} else {
 		printf("Fail");
 	}
 
-	guy_color();
+	guy_celebrate();
 	return 0;
 }
