@@ -165,16 +165,10 @@ void guy_celebrate_intro() {
                 sleep_ms(10);
         }
         clearScreen();
-        printf("  WELCOME TO FogOS !!\n");
-
-	sleep(2);
+	sleep(1);
 	guy_run();
-	printf("Type guy info to see more of me.\n");
 	guy_move_head();
-
-	
-
-	print_guy();
+	printf("WELCOME TO FogOS !! Type guy info to see more of me.\n");
 
         printf("%s", RESET);
 }
