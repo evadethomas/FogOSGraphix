@@ -2,6 +2,8 @@
 #include "kernel/stat.h"
 #include "user/user.h"
 #include "kernel/fs.h"
+#define RESET "\033[0m"
+#define GREEN "\033[32m"
 
 char*
 fmtname(char *path)
@@ -42,7 +44,9 @@ ls(char *path)
   }
 
   guy_celebrate();
+  printf("%s", GREEN);
   printf("WOO! All the files!\n");
+  printf("%s", RESET);
 
   switch(st.type){
   case T_DEVICE:

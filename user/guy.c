@@ -11,7 +11,6 @@ int main (int argc, char *argv[]) {
         } else if (strcmp(argv[1], "info") == 0) {
                 guy_info();
         } else {
-		guy_mad();
 		printf("Mistyped, try again");
 	}
         return 0;

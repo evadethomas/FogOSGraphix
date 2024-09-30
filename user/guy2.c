@@ -100,6 +100,7 @@ void guy_mad() {
 	}
 	clearScreen();
 	print_guy();
+	printf("RAHHHHHHHHHH!!");
 	printf("%s", RESET);
 }
 
@@ -130,6 +131,7 @@ void guy_run() {
                 print_guy_run(i);
                 sleep_ms(10);
         }
+	printf("OS ROCKS!!\n");
 } 
 
 void guy_celebrate() {
