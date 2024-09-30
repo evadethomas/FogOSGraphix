@@ -42,6 +42,7 @@ ls(char *path)
   }
 
   guy_celebrate();
+  printf("WOO! All the files!\n");
 
   switch(st.type){
   case T_DEVICE:

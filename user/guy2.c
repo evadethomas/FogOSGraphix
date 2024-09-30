@@ -158,13 +158,14 @@ void guy_info() {
 	printf("%s", RESET);
 }
 
-void print_message(char* mes) {
+void print_mes(char* str) {
 	print_guy();
 	printf("     ^");
 	printf("   /   \\n");
 	printf("  |     | \n");
 	printf("  |     | \n");
-	printf("%s", mes);
+	printf("%s", str);
+	free(str);
 }
 
 void guy_celebrate_intro() {

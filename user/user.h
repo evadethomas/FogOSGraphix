@@ -58,3 +58,4 @@ void guy_move_head(void);
 void guy_run(void);
 void guy_celebrate(void);
 void guy_info(void);
+void guy_mes(char* str);
