@@ -10,6 +10,8 @@ int main (int argc, char *argv[]) {
                 guy_mad();
         } else if (strcmp(argv[1], "info") == 0) {
                 guy_info();
+        } else if (strcmp(argv[1], "celebrate") == 0) {
+                guy_celebrate();
         } else {
 		printf("Mistyped, try again");
 	}

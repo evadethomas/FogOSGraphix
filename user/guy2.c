@@ -11,7 +11,6 @@ void clearScreen() {
 
 void print_guy() {
 	char *buffer = (char *)malloc(128*20);
-//	char *buffer = (char *)malloc(1);
 	strcpy(buffer, "   O   \n  /|\\  \n  / \\  \n\0");
 	
 	printf(buffer);
@@ -100,7 +99,7 @@ void guy_mad() {
 	}
 	clearScreen();
 	print_guy();
-	printf("RAHHHHHHHHHH!!");
+	printf("RAHHHHHHHHHH!!\n");
 	printf("%s", RESET);
 }
 
