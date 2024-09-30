@@ -72,7 +72,7 @@ void print_guy_run(int pos) {
 void guy_mad() {
 	printf("%s", RED);
 	for (int i = 0; i < 15; i++) {
-		clearScreen();
+		clear_screen();
 		if (i % 2 == 0) {
 			print_guy_L();
 		} else {
@@ -153,11 +153,11 @@ void print_mes(char* str) {
 }
 
 void guy_celebrate_intro() {
-	clearScreen();
+	clear_screen();
 	print_guy_U();
 	printf("%s", GREEN);
         for (int i = 0; i < 15; i++) {
-                clearScreen();
+                clear_screen();
                 if (i % 2 == 0) {
                         print_guy_U();
                 } else {
