@@ -13,3 +13,8 @@ this OS.
 The animations execute by running sleep, clear screen and print in a loop. If the CPU is struggling or already handling a lot, sleep_ms may lag some, resulting in a less pretty animation.
 
 To fix this, quit other applications on your machine.
+
+Challenges and road blocks in creating this:
+
+Reduced the lag in my animation by writing the entire thing to a buffer, then printing the buffer rather than running a few individual loops at once. See man_run() for an example of this.
+Furhter, I really wanted the animation to work when a seg fault occurs, but this is pretty difficult since FogOS doesn't have signals yet. I spent around 2 hours troubleshooting possible ways to get this to work. Since a seg faulting is caught and handled in the hardware and kernel, having the usertrap() function communicate with the user space would take a lot of extra work.
