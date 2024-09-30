@@ -1,5 +1,5 @@
-#include "kernel/types.h"
 #include "user/user.h"
+#include "kernel/types.h"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 #define GREEN "\033[32m"
@@ -7,24 +7,6 @@
 
 void clearScreen() {
 	printf("\033[H\033[J");
-}
-
-void printGuy(int pos) {
-	for (int j = 0; j < pos; j++) {
-        	printf(" ");
-	}
-
-	printf("   O   \n");
-    	
-	for (int j = 0; j < pos; j++) {
-                printf(" ");
-        }
-	printf("  /|\\  \n");
-    	
-	for (int j = 0; j < pos; j++) {
-                printf(" ");
-        }
-	printf("  / \\  \n");
 }
 
 void print_guy() {
@@ -133,7 +115,6 @@ void guy_move_head() {
         }
         clearScreen();
         print_guy();
-        printf("%s", RESET);
 }
 
 
@@ -150,6 +131,24 @@ void guy_run() {
                 sleep_ms(10);
         }
 } 
+
+void guy_celebrate() {
+	clearScreen();
+        print_guy_U();
+        printf("%s", GREEN);
+        for (int i = 0; i < 15; i++) {
+                clearScreen();
+                if (i % 2 == 0) {
+                        print_guy_U();
+                } else {
+                        print_guy();
+                }
+                sleep_ms(10);
+        }
+        clearScreen();
+	print_guy();
+        printf("%s", RESET);
+}
 
 void guy_celebrate_intro() {
 	clearScreen();

@@ -1,3 +1,4 @@
+#include "kernel/types.h"
 struct stat;
 
 // system calls
@@ -45,3 +46,14 @@ void *memcpy(void *, const void *, uint);
 
 //guy2.c
 void guy_celebrate_intro(void);
+void clearScreen(void);
+void printGuy(int pos);
+void print_guy(void);
+void print_guy_U(void);
+void print_guy_L(void);
+void print_guy_R(void);
+void print_guy_run(int pos);
+void guy_mad(void);
+void guy_move_head(void);
+void guy_run(void);
+void guy_celebrate(void);
