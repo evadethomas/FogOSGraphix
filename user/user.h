@@ -46,8 +46,8 @@ void *memcpy(void *, const void *, uint);
 
 //guy2.c
 void guy_celebrate_intro(void);
-void clearScreen(void);
-void printGuy(int pos);
+void clear_screen(void);
+void print_guy(int pos);
 void print_guy(void);
 void print_guy_U(void);
 void print_guy_L(void);
